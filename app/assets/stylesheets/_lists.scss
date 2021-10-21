@@ -1,0 +1,45 @@
+// Place all the styles related to the Lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background-color: gray;
+}
+
+h5 {
+  text-align: center;
+  font-size: 16 px;
+  font-weight: bold;
+}
+
+.list-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.card-body {
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  border-color: none;
+  background-color: chartreuse;
+}
+
+.card-text {
+  margin: 5px;
+}
+
+.list-group-item {
+  background-color: blueviolet;
+}
+
+.card {
+ background-color: cyan;
+ height: 45rem;
+}

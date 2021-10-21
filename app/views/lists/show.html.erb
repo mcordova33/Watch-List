@@ -1,17 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
-
-<ul class="list-group">
-  <% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
-    <li class="list-group-item"><%= movie.title %></li>
-    <%= link_to 'Delete a bookmark', bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure?"}, class: 'text-danger' %>
-  <% end %>
-</ul>
-
-<%= link_to 'Leave a bookmark', new_list_bookmark_path(@list) %>
-<%= link_to 'Back', lists_path %>
+<div class="container">
+  <div class="nav-container">
+    <h2><strong>List name:</strong> <%= @list.name %></h2>
+    <div class="btn-container">
+      <p class="btn btn-primary"><%= link_to 'Leave a bookmark', new_list_bookmark_path(@list) %></p>
+      <p class="btn btn-primary"><%= link_to 'Back', lists_path %></p>
+    </div>
+  </div>
+  <ul class="list-group">
+    <% @list.movies.each do |movie| %>
+      <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
+      <li class="list-group-item">
+        <div class="card" style="width: 20rem;">
+          <%= image_tag movie.poster_url, alt: "alttext", class: "poster" %>
+          <h5 class="card-title"><%= movie.title%></h5>
+          <div class="card-body">
+            <p class="card-text"><%= movie.overview %></p>
+            <p class="card-text"><strong>Rating: </strong><%= movie.rating %></p>
+            <p class="btn btn-danger"><%= link_to 'Delete a bookmark', bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure?"} %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
