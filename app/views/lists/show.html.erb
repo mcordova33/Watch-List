@@ -7,7 +7,9 @@
 
 <ul class="list-group">
   <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
     <li class="list-group-item"><%= movie.title %></li>
+    <%= link_to 'Delete a bookmark', bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure?"}, class: 'text-danger' %>
   <% end %>
 </ul>
 
