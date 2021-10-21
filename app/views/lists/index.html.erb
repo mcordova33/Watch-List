@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lists.each do |lists| %>
+      <tr>
+        <td><%= lists.name %></td>
+        <td><%= link_to 'Show', lists %></td>
+        <td><%= link_to 'Destroy', lists, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New List', new_list_path %>
